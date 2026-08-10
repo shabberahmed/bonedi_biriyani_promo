@@ -4,6 +4,7 @@ import { initScrollProgress, initParallax, initYear } from "./scroll.js";
 import { initCraftScroll } from "./craft.js";
 import { initMenuTabs, initTestimonials } from "./menu.js";
 import { initCursor } from "./cursor.js";
+import { initReservation } from "./reservation.js";
 
 function init() {
   initYear();
@@ -17,6 +18,7 @@ function init() {
   initTestimonials();
   initParallax();
   initCursor();
+  initReservation();
 }
 
 if (document.readyState === "loading") {

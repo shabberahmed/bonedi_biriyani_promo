@@ -126,14 +126,23 @@
   .hero__text,
   .hero__actions,
   .hero__scroll,
-  .preloader__seal,
-  .preloader__word,
-  .preloader__bar-fill {
+  .preloader__seal-wrap,
+  .preloader__brand span,
+  .preloader__tag,
+  .preloader__progress,
+  .preloader__rings span,
+  .preloader__ornament,
+  .preloader__glow,
+  .preloader__progress-fill {
     opacity: 1 !important;
     transform: none !important;
     clip-path: none !important;
     animation: none !important;
     transition: none !important;
+  }
+
+  .preloader__progress-fill {
+    width: 100% !important;
   }
 
   .hero.is-ready .hero__overlay {

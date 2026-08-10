@@ -60,12 +60,6 @@
     padding-inline: 1.25rem;
   }
 
-  .menu-card__top {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.35rem;
-  }
-
   .brand__name {
     font-size: 1rem;
   }
@@ -78,14 +72,9 @@
 }
 
 @media (hover: none) {
-  .menu-card:hover,
   .ingredient-card:hover .ingredient-card__bg,
   .experience-gallery__item:hover img,
   .media-frame:hover img {
-    transform: none;
-  }
-
-  .menu-card:hover {
     transform: none;
   }
 

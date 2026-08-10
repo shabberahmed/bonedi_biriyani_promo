@@ -3,22 +3,44 @@ import { qs, qsa, on, prefersReducedMotion } from "./utilities.js";
 export function initPreloader() {
   const preloader = qs("[data-preloader]");
   const hero = qs("[data-hero]");
+  const progress = qs("[data-preloader-progress]", preloader || document);
   if (!preloader) return;
 
   let finished = false;
+  let loadProgress = 0;
+  let visualProgress = 0;
+  let raf = 0;
+
+  const setProgress = (value) => {
+    loadProgress = Math.max(loadProgress, value);
+  };
+
+  const tickProgress = () => {
+    visualProgress += (loadProgress - visualProgress) * 0.08;
+    if (progress) {
+      progress.style.width = `${Math.min(100, visualProgress * 100)}%`;
+    }
+    if (!finished) raf = requestAnimationFrame(tickProgress);
+  };
 
   const finish = () => {
     if (finished) return;
     finished = true;
-    preloader.classList.add("is-done");
-    document.body.classList.remove("is-loading");
-    if (hero) {
-      requestAnimationFrame(() => hero.classList.add("is-ready"));
-    }
+    setProgress(1);
+    if (progress) progress.style.width = "100%";
+
     window.setTimeout(() => {
-      preloader.setAttribute("aria-hidden", "true");
-      preloader.style.display = "none";
-    }, 900);
+      preloader.classList.add("is-done");
+      document.body.classList.remove("is-loading");
+      if (hero) {
+        requestAnimationFrame(() => hero.classList.add("is-ready"));
+      }
+      window.setTimeout(() => {
+        preloader.setAttribute("aria-hidden", "true");
+        preloader.style.display = "none";
+        cancelAnimationFrame(raf);
+      }, 1000);
+    }, 220);
   };
 
   if (prefersReducedMotion()) {
@@ -26,10 +48,25 @@ export function initPreloader() {
     return;
   }
 
+  raf = requestAnimationFrame(tickProgress);
+
   const start = performance.now();
-  const minDuration = 1600;
+  const minDuration = 2600;
+
+  // Simulated ceremonial progress while assets load
+  const milestones = [
+    { at: 300, value: 0.18 },
+    { at: 700, value: 0.36 },
+    { at: 1200, value: 0.58 },
+    { at: 1700, value: 0.76 },
+    { at: 2200, value: 0.9 },
+  ];
+  milestones.forEach(({ at, value }) => {
+    window.setTimeout(() => setProgress(value), at);
+  });
 
   const done = () => {
+    setProgress(0.96);
     const elapsed = performance.now() - start;
     const wait = Math.max(0, minDuration - elapsed);
     window.setTimeout(finish, wait);
@@ -41,7 +78,7 @@ export function initPreloader() {
     window.addEventListener("load", done, { once: true });
   }
 
-  window.setTimeout(finish, 3200);
+  window.setTimeout(finish, 4200);
 }
 
 export function initNavigation() {
