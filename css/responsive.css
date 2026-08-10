@@ -1,0 +1,95 @@
+/* Mobile refinements beyond component breakpoints */
+
+@media (max-width: 767px) {
+  :root {
+    --header-h: 4rem;
+  }
+
+  .hero {
+    align-items: flex-end;
+    padding-bottom: 3.5rem;
+  }
+
+  .hero__title {
+    max-width: 10ch;
+  }
+
+  .hero__actions {
+    width: 100%;
+  }
+
+  .hero__actions .btn {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+
+  .signature__media {
+    aspect-ratio: 5 / 4;
+  }
+
+  .craft-step {
+    padding-block: 2rem;
+  }
+
+  .ingredient-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ingredient-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    aspect-ratio: 16 / 9;
+  }
+
+  .experience-gallery__item,
+  .experience-gallery__item--tall {
+    aspect-ratio: 16 / 11;
+  }
+
+  .reserve__title {
+    font-size: clamp(2.5rem, 12vw, 3.5rem);
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn {
+    padding-inline: 1.25rem;
+  }
+
+  .menu-card__top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+
+  .brand__name {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --container: min(1320px, 100% - (var(--section-pad-x) * 2));
+  }
+}
+
+@media (hover: none) {
+  .menu-card:hover,
+  .ingredient-card:hover .ingredient-card__bg,
+  .experience-gallery__item:hover img,
+  .media-frame:hover img {
+    transform: none;
+  }
+
+  .menu-card:hover {
+    transform: none;
+  }
+
+  .ingredient-card:hover .ingredient-card__bg {
+    filter: saturate(0.9) brightness(0.7);
+  }
+}

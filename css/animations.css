@@ -1,0 +1,142 @@
+@keyframes seal-in {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fade-up {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes line-reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes load-bar {
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes scroll-pulse {
+  0%,
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scaleY(0.55);
+    opacity: 0.5;
+  }
+}
+
+/* Scroll reveal system */
+.reveal,
+.reveal-up,
+.reveal-left,
+.reveal-right,
+.scale-reveal {
+  opacity: 0;
+  transition:
+    opacity 1s var(--ease-out),
+    transform 1s var(--ease-out);
+  will-change: opacity, transform;
+}
+
+.reveal {
+  transform: translateY(0);
+}
+
+.reveal-up {
+  transform: translateY(40px);
+}
+
+.reveal-left {
+  transform: translateX(-36px);
+}
+
+.reveal-right {
+  transform: translateX(36px);
+}
+
+.scale-reveal {
+  transform: scale(0.96);
+}
+
+.reveal.is-inview,
+.reveal-up.is-inview,
+.reveal-left.is-inview,
+.reveal-right.is-inview,
+.scale-reveal.is-inview {
+  opacity: 1;
+  transform: none;
+}
+
+.stagger > * {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.8s var(--ease-out),
+    transform 0.8s var(--ease-out);
+}
+
+.stagger.is-inview > *:nth-child(1) { transition-delay: 0.05s; }
+.stagger.is-inview > *:nth-child(2) { transition-delay: 0.12s; }
+.stagger.is-inview > *:nth-child(3) { transition-delay: 0.19s; }
+.stagger.is-inview > *:nth-child(4) { transition-delay: 0.26s; }
+.stagger.is-inview > *:nth-child(5) { transition-delay: 0.33s; }
+.stagger.is-inview > *:nth-child(6) { transition-delay: 0.4s; }
+.stagger.is-inview > *:nth-child(7) { transition-delay: 0.47s; }
+
+.stagger.is-inview > * {
+  opacity: 1;
+  transform: none;
+}
+
+.mask-reveal {
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 1.15s var(--ease-out);
+}
+
+.mask-reveal.is-inview {
+  clip-path: inset(0 0 0 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-up,
+  .reveal-left,
+  .reveal-right,
+  .scale-reveal,
+  .stagger > *,
+  .mask-reveal,
+  .image-reveal__mask,
+  .image-reveal img,
+  .hero__media img,
+  .hero__seal,
+  .hero__brand,
+  .hero__title .line span,
+  .hero__text,
+  .hero__actions,
+  .hero__scroll,
+  .preloader__seal,
+  .preloader__word,
+  .preloader__bar-fill {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .hero.is-ready .hero__overlay {
+    opacity: 1;
+  }
+}

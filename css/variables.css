@@ -1,0 +1,76 @@
+:root {
+  /* Brand palette — derived from Bonedi packaging & wax seal */
+  --color-bg: #0c0a09;
+  --color-bg-elevated: #12100e;
+  --color-surface: #1a1410;
+  --color-surface-warm: #221810;
+  --color-maroon: #4a1c24;
+  --color-maroon-deep: #2e1014;
+  --color-maroon-mid: #5c2428;
+  --color-gold: #b9965b;
+  --color-gold-light: #d4b87a;
+  --color-gold-dim: #8a7048;
+  --color-cream: #e5d3b3;
+  --color-ivory: #f2e9d8;
+  --color-saffron: #c77a32;
+  --color-muted: #a89078;
+  --color-text: #f2e9d8;
+  --color-text-muted: #b9aa94;
+  --color-border: rgba(185, 150, 91, 0.22);
+  --color-border-strong: rgba(185, 150, 91, 0.45);
+  --color-overlay: rgba(12, 10, 9, 0.72);
+  --color-overlay-heavy: rgba(12, 10, 9, 0.88);
+
+  /* Typography */
+  --font-display: "Cormorant Garamond", "Times New Roman", Georgia, serif;
+  --font-sans: "Outfit", "Helvetica Neue", Helvetica, sans-serif;
+
+  --text-xs: clamp(0.7rem, 0.65rem + 0.2vw, 0.8rem);
+  --text-sm: clamp(0.85rem, 0.8rem + 0.25vw, 0.95rem);
+  --text-base: clamp(1rem, 0.95rem + 0.3vw, 1.125rem);
+  --text-md: clamp(1.125rem, 1rem + 0.5vw, 1.35rem);
+  --text-lg: clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem);
+  --text-xl: clamp(2.25rem, 1.6rem + 2.5vw, 4rem);
+  --text-2xl: clamp(3rem, 2rem + 4vw, 6.5rem);
+  --text-hero: clamp(3.5rem, 2.2rem + 5.5vw, 7.5rem);
+
+  --tracking-wide: 0.12em;
+  --tracking-wider: 0.22em;
+  --tracking-widest: 0.32em;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 6rem;
+  --spacing-2xl: 8rem;
+  --spacing-3xl: 12rem;
+
+  --section-pad-y: clamp(4.5rem, 8vw, 9rem);
+  --section-pad-x: clamp(1.25rem, 5vw, 6rem);
+  --container: min(1240px, 100% - (var(--section-pad-x) * 2));
+
+  /* Radii — restrained */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 250ms;
+  --duration-med: 500ms;
+  --duration-slow: 900ms;
+  --duration-hero: 1400ms;
+
+  /* Layout */
+  --header-h: 4.5rem;
+  --z-progress: 90;
+  --z-header: 100;
+  --z-drawer: 110;
+  --z-preloader: 200;
+  --z-cursor: 300;
+
+  --grain-opacity: 0.045;
+}
