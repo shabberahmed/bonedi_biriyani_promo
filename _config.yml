@@ -1,0 +1,7 @@
+title: Bonedi
+description: Bonedi House — Bengali biryani and homestyle meals in Miyapur, Hyderabad.
+url: https://bonedihouse.in
+baseurl: ""
+exclude:
+  - reference
+  - README.md
