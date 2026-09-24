@@ -1,0 +1,115 @@
+/* SEO sections: visit + faq + subpages (non-breaking, reuses tokens) */
+.visit__grid {
+  display: grid;
+  gap: 1.5rem;
+}
+@media (min-width: 900px) {
+  .visit__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 4vw, 4rem);
+  }
+}
+.visit__address {
+  font-style: normal;
+  line-height: 1.8;
+}
+.visit__address a,
+.visit__hours a,
+.faq__item a,
+.subpage a {
+  color: var(--color-gold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.faq__list {
+  display: grid;
+  gap: 0.9rem;
+  max-width: 46rem;
+  margin-inline: auto;
+}
+.faq__item {
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: var(--color-surface);
+}
+.faq__item summary {
+  cursor: pointer;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+.faq__item p {
+  margin-top: 0.65rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  font-size: var(--text-sm);
+}
+/* Lightweight SEO subpages */
+.subpage {
+  min-height: 100vh;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+.subpage__wrap {
+  width: var(--container);
+  margin-inline: auto;
+  padding: 6rem var(--section-pad-x) 4rem;
+  max-width: 56rem;
+}
+.subpage__crumbs {
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 1.5rem;
+}
+.subpage h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+.subpage__lede {
+  color: var(--color-text-muted);
+  font-size: var(--text-base);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+.subpage h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  margin: 2.5rem 0 1rem;
+  color: var(--color-gold);
+}
+.subpage p, .subpage li {
+  line-height: 1.75;
+  color: var(--color-text-muted);
+}
+.subpage ul, .subpage ol {
+  padding-left: 1.25rem;
+  display: grid;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+.subpage__card {
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  margin: 1rem 0;
+}
+.subpage__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem var(--section-pad-x);
+  width: var(--container);
+  margin-inline: auto;
+}
+.subpage__brand {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-gold);
+  text-decoration: none;
+}
